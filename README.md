@@ -4,7 +4,9 @@ Portfólio pessoal — onde front-end e back-end se encontram.
 
 > ⚠️ Projeto em desenvolvimento contínuo. Novas seções, ajustes e melhorias são adicionados aos poucos através de commits.
 
-![preview](assets/preview.png)
+### 🔗 [Acessar o portfólio](https://luanagimns.github.io/portfolio/)
+
+[![preview](assets/preview.png)](https://luanagimns.github.io/portfolio/)
 
 ## ✨ Seções
 
@@ -15,8 +17,6 @@ Portfólio pessoal — onde front-end e back-end se encontram.
 - **Stack** — linguagens, frameworks e nível de domínio autoavaliado
 - **Jornada** — trajetória até aqui, com currículo em PDF
 - **Contato** — envio de e-mail direto, com cópia do endereço como fallback
-
-Extras: tema claro/escuro, tradução PT/EN, terminal interativo (command palette) e animações de scroll.
 
 ## 🛠️ Stack
 
