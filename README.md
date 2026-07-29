@@ -4,7 +4,7 @@ Portfólio pessoal — onde front-end e back-end se encontram.
 
 > ⚠️ Projeto em desenvolvimento contínuo. Novas seções, ajustes e melhorias são adicionados aos poucos através de commits.
 
-<!-- ![preview](assets/preview.png) -->
+![preview](assets/preview.png)
 
 ## ✨ Seções
 
