@@ -1,0 +1,653 @@
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luana % Dev Log</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("luanaTheme");
+          var theme =
+            saved ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+    <div id="scrollProgress" class="scroll-progress"></div>
+
+    <div id="bootScreen" class="boot-screen">
+      <div class="boot-log" id="bootLog"></div>
+    </div>
+
+    <nav id="mainNav">
+      <a
+        href="#hero"
+        class="brand"
+        style="text-decoration: none; color: inherit"
+        >LUANAGIMNS.DEV</a
+      >
+
+      <button
+        id="navToggle"
+        class="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mainNavLinks"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="navlinks" id="mainNavLinks">
+        <a href="#about" data-i18n="nav.about">SOBRE</a>
+        <a href="#projects" class="active" data-i18n="nav.projects">PROJETOS</a>
+        <a href="#learning" data-i18n="nav.learning">APRENDIZADO</a>
+        <a href="#stack" data-i18n="nav.stack">STACK</a>
+        <a href="#cv" data-i18n="nav.cv">CURRÍCULO</a>
+        <a href="#contact" data-i18n="nav.contact">CONTATO</a>
+
+        <div class="nav-controls-mobile">
+          <button
+            id="themeToggleMobile"
+            class="icon-btn"
+            type="button"
+            aria-label="Alternar tema claro/escuro"
+            data-i18n-aria="controls.theme"
+          >
+            <span class="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+          <button
+            id="langToggleMobile"
+            class="icon-btn lang-btn"
+            type="button"
+            aria-label="Switch language"
+            data-i18n-aria="controls.lang"
+          >
+            <span class="lang-label">EN</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-controls">
+        <button
+          id="themeToggle"
+          class="icon-btn"
+          type="button"
+          aria-label="Alternar tema claro/escuro"
+          title="Alternar tema"
+          data-i18n-aria="controls.theme"
+        >
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button
+          id="langToggle"
+          class="icon-btn lang-btn"
+          type="button"
+          aria-label="Switch language"
+          title="Switch language"
+          data-i18n-aria="controls.lang"
+        >
+          <span class="lang-label">EN</span>
+        </button>
+        <div class="status-badge">
+          <span class="dot"></span
+          ><span data-i18n="nav.status">OPEN TO WORK</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="hero">
+      <div>
+        <div class="eyebrow" data-i18n="hero.eyebrow">
+          FULL STACK • ESTUDANTE ADS • APIS REST
+        </div>
+        <h1
+          class="glitch-title"
+          data-text="DESENVOLVEDORA FULL STACK EM FORMACAO"
+          data-i18n="hero.title"
+          data-i18n-datatext="hero.title"
+        >
+          DESENVOLVEDORA FULL STACK<br /><span class="hl">EM FORMAÇÃO</span>
+        </h1>
+        <p class="lead" data-i18n="hero.lead">
+          Interfaces, APIs e projetos práticos — construídos entre a
+          faculdade, cursos e a vontade de aprender fazendo.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn fill" data-i18n="hero.ctaProjects"
+            >VER PROJETOS →</a
+          >
+          <a href="#cv" class="btn ghost" data-i18n="hero.ctaCv"
+            >&gt;_ ABRIR CURRÍCULO</a
+          >
+        </div>
+      </div>
+
+      <div class="status-card">
+        <div class="hero-shapes" aria-hidden="true">
+          <span class="shape shape-circle-lg"></span>
+          <span class="shape shape-circle-sm"></span>
+          <span class="shape shape-ring"></span>
+          <span class="shape shape-square"></span>
+          <span class="shape shape-blob"></span>
+          <span class="shape shape-dot dot-1"></span>
+          <span class="shape shape-dot dot-2"></span>
+          <span class="shape shape-dot dot-3"></span>
+        </div>
+        <img src="assets/avatarr.png" alt="Luana" class="hero-avatar-img" />
+      </div>
+    </section>
+
+    <!-- ============================== SOBRE ============================== -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="eyebrow-row">
+          <span data-i18n="about.eyebrowLeft">/* um pouco sobre mim */</span
+          ><span data-i18n="about.eyebrowRight"
+            >quem está por trás do código</span
+          >
+        </div>
+        <h2 data-i18n="about.heading">Quem está por trás do código.</h2>
+
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <p data-i18n="about.p1">
+              Sou <b>Luana</b>, estudante de
+              <span class="hl-word">Análise e Desenvolvimento de Sistemas</span>
+              na UNICEP, com foco em me tornar desenvolvedora full stack.
+            </p>
+            <p data-i18n="about.p2">
+              Desenvolvo projetos com HTML, CSS, JavaScript, TypeScript,
+              Angular, Node.js, PHP e Python, sempre buscando aplicar boas
+              práticas e escrever <span class="hl-word">código limpo</span>.
+            </p>
+            <p data-i18n="about.p3">
+              Estou em busca da minha
+              <span class="hl-word">primeira oportunidade</span> na área,
+              com interesse em desenvolvimento web, arquitetura de aplicações
+              e APIs que gerem valor real.
+            </p>
+            <p data-i18n="about.p4">
+              Com <span class="hl-word">curiosidade</span> como motor e
+              projetos práticos como forma de aprender de verdade.
+            </p>
+
+            <div class="about-tags">
+              <span class="about-tag">HTML5</span>
+              <span class="about-tag">CSS3</span>
+              <span class="about-tag">JavaScript</span>
+              <span class="about-tag">TypeScript</span>
+              <span class="about-tag">Angular</span>
+              <span class="about-tag">Node.js</span>
+              <span class="about-tag">PHP</span>
+              <span class="about-tag">Python</span>
+            </div>
+          </div>
+
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-k">course</div>
+              <div class="about-stat-v">1º</div>
+              <div class="about-stat-label" data-i18n="about.statYears">
+                ANO NA GRADUAÇÃO
+              </div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-k">projects_built</div>
+              <div class="about-stat-v">7</div>
+              <div class="about-stat-label" data-i18n="about.statProjects">
+                PROJETOS PRÁTICOS
+              </div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-k">tech_stacks</div>
+              <div class="about-stat-v">10</div>
+              <div class="about-stat-label" data-i18n="about.statStacks">
+                TECNOLOGIAS
+              </div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-k">coffees</div>
+              <div class="about-stat-v">∞</div>
+              <div class="about-stat-label" data-i18n="about.statCoca">
+                CAFÉS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <!-- ============================== PROJETOS ============================== -->
+    <section id="projects">
+      <div class="section-inner reveal">
+        <div class="eyebrow-row">
+          <span data-i18n="projects.eyebrowLeft"
+            >/* projetos que construí */</span
+          ><span data-i18n="projects.eyebrowRight">3 em destaque</span>
+        </div>
+        <h2 data-i18n="projects.heading">
+          Onde front-end e back-end se encontram.
+        </h2>
+        <p class="desc" data-i18n="projects.desc">
+          Cada projeto abaixo é uma tentativa de praticar o que estudo —
+          de lógica de programação a componentização e boas práticas.
+        </p>
+
+        <div class="filter-row reveal">
+          <button
+            class="filter-chip active"
+            data-filter="ALL"
+            data-i18n="projects.filterAll"
+          >
+            TODOS
+          </button>
+          <button class="filter-chip" data-filter="WEB">WEB</button>
+          <button class="filter-chip" data-filter="TOOL">TOOL</button>
+        </div>
+      </div>
+
+      <div class="proj-grid" id="projGrid">
+        <div class="proj-item reveal tilt-card" data-tag="WEB">
+          <div class="top-row">
+            <h3>Gerador de Certificados</h3>
+            <span class="proj-tag">WEB</span>
+          </div>
+          <div class="tags">Angular · TypeScript · HTML5 · CSS3 · Vitest</div>
+          <p data-i18n="projects.certificados">
+            Aplicação para gerar, listar, visualizar e baixar certificados,
+            construída com Angular e boas práticas de componentização.
+          </p>
+          <a
+            class="link"
+            href="https://github.com/luanagimns/gerador-certificado"
+            data-i18n="projects.link"
+            >Ver no GitHub ↗</a
+          >
+        </div>
+
+        <div class="proj-item reveal tilt-card" data-tag="TOOL">
+          <div class="top-row">
+            <h3>Bin2Dec</h3>
+            <span class="proj-tag">TOOL</span>
+          </div>
+          <div class="tags">HTML5 · CSS3 · JavaScript</div>
+          <p data-i18n="projects.bin2dec">
+            Conversor de números binários para decimal, desenvolvido para
+            praticar lógica de programação e manipulação do DOM.
+          </p>
+          <a
+            class="link"
+            href="https://github.com/luanagimns/bin2dec"
+            data-i18n="projects.link"
+            >Ver no GitHub ↗</a
+          >
+        </div>
+
+        <div class="proj-item reveal tilt-card" data-tag="WEB">
+          <div class="top-row">
+            <h3>Local Turístico</h3>
+            <span class="proj-tag">WEB</span>
+          </div>
+          <div class="tags">HTML5 · CSS3</div>
+          <p data-i18n="projects.turistico">
+            Landing page responsiva para apresentar um destino turístico,
+            aplicando HTML semântico e CSS moderno.
+          </p>
+          <a
+            class="link"
+            href="https://github.com/luanagimns/local-turistico"
+            data-i18n="projects.link"
+            >Ver no GitHub ↗</a
+          >
+        </div>
+      </div>
+      <p class="filter-empty" id="filterEmpty" style="display: none" data-i18n="projects.filterEmpty">
+        Nenhum projeto com essa tag ainda — mas tá vindo por aí.
+      </p>
+      <p class="proj-more" data-i18n="projects.more">
+        Outros projetos práticos (Agenda Pet, Carrossel de Fotos, Página de
+        Receitas, DevLinks) estão no
+        <a href="https://github.com/luanagimns" target="_blank">GitHub ↗</a>.
+      </p>
+    </section>
+
+    <!-- ============================== TRANSIÇÃO 2 ============================== -->
+    <div class="section-transition dark" aria-hidden="true"></div>
+
+    <!-- ============================== APRENDIZADO ============================== -->
+    <section id="learning" style="background: var(--panel); color: var(--cream)">
+      <div class="section-inner reveal">
+        <div class="eyebrow-row" style="opacity: 0.5">
+          <span data-i18n="learning.eyebrowLeft"
+            >/* aprendizado contínuo */</span
+          ><span data-i18n="learning.eyebrowRight">cursos · prática</span>
+        </div>
+        <h2 style="color: var(--cream)" data-i18n="learning.heading">
+          Aprendizado contínuo, projeto após projeto.
+        </h2>
+        <p
+          class="desc"
+          style="color: rgba(244, 240, 230, 0.7)"
+          data-i18n="learning.desc"
+        >
+          Construo conhecimento através de cursos e prática constante:
+          lógica de programação, desenvolvimento web, APIs REST e boas
+          práticas de código.
+        </p>
+
+        <div class="lab-wrap">
+          <div class="terminal" id="labTerminal">
+            <div class="bar"><span></span><span></span><span></span></div>
+          </div>
+          <div>
+            <div class="cv-block">
+              <h4 data-i18n="learning.toolsHeading">FERRAMENTAS</h4>
+              <div class="chip-list">
+                <span class="chip" style="border-color: rgba(244, 240, 230, 0.4)">Git</span>
+                <span class="chip" style="border-color: rgba(244, 240, 230, 0.4)">GitHub</span>
+                <span class="chip" style="border-color: rgba(244, 240, 230, 0.4)">VS Code</span>
+                <span class="chip" style="border-color: rgba(244, 240, 230, 0.4)">Postman</span>
+                <span class="chip" style="border-color: rgba(244, 240, 230, 0.4)" data-i18n="learning.chipApi">APIs REST</span>
+              </div>
+            </div>
+            <div class="cv-block">
+              <h4 data-i18n="learning.coursesHeading">CURSOS</h4>
+              <p
+                style="font-size: 12.5px; line-height: 1.8; opacity: 0.75"
+                data-i18n="learning.coursesText"
+              >
+                Discover e Desenvolvimento Web (Rocketseat), Bootcamp de ADS
+                (UNICEP, em andamento) — a base prática por trás dos meus
+                projetos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TRANSIÇÃO 3 ============================== -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <!-- ============================== STACK ============================== -->
+    <section id="stack">
+      <div class="section-inner reveal">
+        <div class="eyebrow-row">
+          <span data-i18n="stack.eyebrowLeft">/* stack que uso */</span
+          ><span data-i18n="stack.eyebrowRight"
+            >linguagens, frameworks e ferramentas</span
+          >
+        </div>
+        <h2 data-i18n="stack.heading">
+          As tecnologias por trás dos meus projetos.
+        </h2>
+        <p class="desc" data-i18n="stack.desc">
+          Front-end e back-end — o que uso no dia a dia pra construir,
+          testar e evoluir como desenvolvedora full stack.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-bars reveal">
+            <p class="skill-bars-legend" data-i18n="stack.legend">
+              Nível de domínio autoavaliado em cada tecnologia (não é
+              cobertura de uso nem certificação).
+            </p>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ JavaScript</span><span class="skill-pct">75%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ HTML5 / CSS3</span><span class="skill-pct">80%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ TypeScript</span><span class="skill-pct">62%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 62%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ Angular</span><span class="skill-pct">60%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 60%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ Node.js</span><span class="skill-pct">58%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 58%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ PHP</span><span class="skill-pct">55%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 55%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ Python</span><span class="skill-pct">55%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 55%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top">
+                <span>▸ Nuxt</span><span class="skill-pct">45%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 45%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-icon-grid reveal">
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="" loading="lazy" /><span>HTML5</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="" loading="lazy" /><span>CSS3</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="" loading="lazy" /><span>JavaScript</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="" loading="lazy" /><span>TypeScript</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" alt="" loading="lazy" /><span>Angular</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="" loading="lazy" /><span>Node.js</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="" loading="lazy" /><span>PHP</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="" loading="lazy" /><span>Python</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nuxtjs/nuxtjs-original.svg" alt="" loading="lazy" /><span>Nuxt</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="" loading="lazy" /><span>Git</span>
+            </div>
+            <div class="skill-icon-card">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" loading="lazy" /><span>GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== JORNADA ============================== -->
+    <section id="cv">
+      <div class="section-inner">
+        <div class="eyebrow-row">
+          <span data-i18n="cv.eyebrowLeft">/* trajetória */</span
+          ><span data-i18n="cv.eyebrowRight">ADS</span>
+        </div>
+        <h2 data-i18n="cv.heading">Minha jornada até aqui.</h2>
+
+        <div class="trajectory reveal">
+          <div class="traj-item">
+            <span class="traj-dot dot-coral"></span>
+            <div class="traj-date date-coral">
+              2026 — <span data-i18n="cv.now">AGORA</span>
+            </div>
+            <div class="traj-title" data-i18n="cv.t1title">
+              Evolução para desenvolvimento full stack
+            </div>
+            <p class="traj-desc" data-i18n="cv.t1desc">
+              Aprofundamento em front-end e back-end: JavaScript,
+              TypeScript, Angular, Node.js, PHP, Python e React Native,
+              construindo aplicações cada vez mais completas.
+            </p>
+          </div>
+
+          <div class="traj-item">
+            <span class="traj-dot dot-purple"></span>
+            <div class="traj-date date-purple">2026</div>
+            <div class="traj-title" data-i18n="cv.t2title">
+              Ingresso em Análise e Desenvolvimento de Sistemas
+            </div>
+            <p class="traj-desc" data-i18n="cv.t2desc">
+              Início da graduação em ADS na UNICEP, aprofundando
+              conhecimentos em algoritmos, banco de dados e engenharia de
+              software.
+            </p>
+          </div>
+
+          <div class="traj-item">
+            <span class="traj-dot dot-blue"></span>
+            <div class="traj-date date-blue">2026</div>
+            <div class="traj-title" data-i18n="cv.t3title">
+              Início dos estudos na Rocketseat
+            </div>
+            <p class="traj-desc" data-i18n="cv.t3desc">
+              Primeiros passos na programação: fundamentos, desenvolvimento
+              web e os primeiros projetos práticos.
+            </p>
+          </div>
+        </div>
+
+        <p class="cv-download-note">
+          <span data-i18n="cv.downloadNote">Quer o currículo completo?</span>
+          <a href="curriculo-luana-gimenes.pdf" target="_blank" data-i18n="cv.downloadLink"
+            >baixar em PDF ↗</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== CONTATO ============================== -->
+    <section id="contact">
+      <div class="section-inner">
+        <div class="eyebrow-row">
+          <span data-i18n="contact.eyebrowLeft">contato</span
+          ><span data-i18n="contact.eyebrowRight">fale comigo</span>
+        </div>
+        <h2 data-i18n="contact.heading">Vamos trabalhar juntos?</h2>
+        <div class="contact-grid reveal">
+          <div class="contact-left contact-fade">
+            <p
+              style="
+                font-size: 13px;
+                line-height: 1.8;
+                opacity: 0.75;
+                max-width: 380px;
+              "
+              data-i18n="contact.intro"
+            >
+              Tem um projeto em mente ou uma vaga de estágio? Me manda uma
+              mensagem, respondo o mais breve possível.
+            </p>
+            <a href="mailto:byluanagimenes@gmail.com"
+              >✉ byluanagimenes@gmail.com</a
+            >
+            <a href="https://github.com/luanagimns" target="_blank"
+              >◐ github.com/luanagimns</a
+            >
+            <a href="https://www.linkedin.com/in/luanagimns/" target="_blank"
+              >◑ linkedin.com/in/luanagimns</a
+            >
+            <a
+              href="mailto:byluanagimenes@gmail.com"
+              id="contactEmailBtn"
+              class="btn fill contact-cta-btn"
+              data-i18n="contact.send"
+              >✉ ENVIAR E-MAIL</a
+            >
+            <p class="contact-copied" id="contactCopied"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer data-i18n="footer.text">
+      LUANA % DEV FULL STACK — construído com curiosidade.
+    </footer>
+
+    <!-- ============================== COMMAND PALETTE ============================== -->
+    <button
+      id="cmdkTrigger"
+      class="cmdk-trigger"
+      title="abrir terminal (pressione /)"
+    >
+      &gt;_
+    </button>
+
+    <div id="cmdk" class="cmdk-overlay">
+      <div class="cmdk-box">
+        <div class="cmdk-input-row">
+          <span class="cmdk-prompt">$</span>
+          <input
+            id="cmdkInput"
+            type="text"
+            placeholder='digite "help"...'
+            autocomplete="off"
+          />
+        </div>
+        <div class="cmdk-output" id="cmdkOutput"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
