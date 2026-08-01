@@ -57,7 +57,8 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Anton', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -.5px;
   line-height: .97;
@@ -143,7 +144,8 @@ nav.scrolled {
 }
 
 .brand {
-  font-family: 'Anton';
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
   font-size: 19px;
   letter-spacing: -.5px;
   white-space: nowrap;
@@ -1016,7 +1018,7 @@ section .desc {
 }
 
 [data-theme="dark"] .about-text .hl-word {
-  color: var(--lime);
+  color: #8e76d4;
 }
 
 .about-tags {
@@ -1045,7 +1047,7 @@ section .desc {
 }
 
 .about-stat {
-  background: var(--panel);
+  background: #161616;
   color: var(--cream);
   padding: 22px;
 }
@@ -1057,7 +1059,8 @@ section .desc {
 }
 
 .about-stat-v {
-  font-family: 'Anton';
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
   font-size: 32px;
   color: var(--lime);
   line-height: 1;
