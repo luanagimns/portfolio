@@ -13,6 +13,9 @@
   --bg: var(--cream);
   --bg-rgb: 247, 245, 242;
   --text: var(--ink);
+  --learning-bg: var(--cream);
+  --learning-text: var(--ink);
+  --learning-text-rgb: 10, 10, 10;
 }
 
 /* ---- tema escuro ---- */
@@ -21,6 +24,9 @@
   --bg-rgb: 10, 10, 10;
   --text: #f2eee6;
   --line: rgba(167, 139, 250, .16);
+  --learning-bg: var(--panel);
+  --learning-text: var(--cream);
+  --learning-text-rgb: 244, 240, 230;
 }
 
 /* transição suave ao trocar de tema */
@@ -592,7 +598,7 @@ nav.scrolled {
 }
 
 .section-transition.dark {
-  background: var(--panel);
+  background: var(--learning-bg);
 }
 
 
